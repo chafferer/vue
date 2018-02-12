@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>实例化vue</title>
+</head>
+<body>
+    <div id="vue-app">
+        <p> {{ name }}: {{age}} </p>
+        <p> {{ greet() }} </p>
+        <!-- v-bind: 或者 : -->
+        <a :href=" website ">跳转</a>   
+        <p v-html="newTag"></p>
+    </div>
+    <script>
+        //实例化vue对象
+        new Vue({
+            el: "#vue-app" ,//element,html中的根容器 
+            data: {
+                name: "韩梅梅" ,
+                age: 12,
+                website: "http://www.google.com",
+                newTag: "<div>hello world</div>"
+            },//用于数据的存储
+            methods: {
+                greet: function(){
+                    return "good morning" + " " + this.name;                  
+                }
+            }
+        });
+    </script>
+</body>
+</html>
