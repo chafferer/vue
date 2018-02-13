@@ -11,12 +11,19 @@
     <div id="vue-app">
         <p> {{age}} </p>
         <!-- <button v-on:click="age--">-1</button> -->
-        <button v-on:click="rem()"> -1 </button><!-- 方法的() 可以去除 -->
-        <button v-on:click="add()"> +1 </button>
-        <button v-on:dblclick="dbladd()">dbclick+1 </button> <!-- 双击事件 -->
+        <button v-on:click="rem"> -1 </button><!-- 方法的() 可以去除 -->
+        <button v-on:click="add"> +1 </button>
+        <button v-on:dblclick="dbladd">dbclick+1 </button> <!-- 双击事件 -->
         <div id="canvas" v-on:mousemove="move" style="width: 200px;height: 100px; border: 1px solid red;">
             {{x}}, {{y}}
-            <span @mousemove="stopMoving">停止</span>
+            <!-- 
+                修饰符 
+                *.stop 阻止事件冒泡
+                *.prevent 取消默认操作
+                *.capture  添加事件监听器时使用事件捕获模式，即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理 
+                *。once 点击事件将只会触发一次
+            -->
+            <span @mousemove.stop="">停止</span>
         </div>
     </div>
     <script>
@@ -39,13 +46,13 @@
                    this.age++ ;
                },
                move: function(event) {
-                    //    console.log(event);
+                    console.log(event);
                     this.x = event.x || event.offsetX;
                     this.y = event.y || event.offsetY;
                },
-               stopMoving: function(event){
-                    window.event?window.event.cancelBubble=true:event.stopPropagation();  //js阻止事件冒泡
-               }
+            //    stopMoving: function(event){
+            //         window.event?window.event.cancelBubble=true:event.stopPropagation();  //js阻止事件冒泡
+            //    }
             }
         });
     </script>

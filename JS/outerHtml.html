@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>outerHtml</title>
+</head>
+<body>
+    <div id="div">
+        <p id="text">hello world !</p>
+    </div>
+    <script>
+        var div=document.getElementById('div');
+        var p=document.getElementById('text');
+        // console.log(div.outerHTML);
+        // console.log(text.outerText);
+        // p.innerHTML='<a href="">good evening!</a>';
+        p.outerHTML='good evening!';
+    </script>
+</body>
+</html>
