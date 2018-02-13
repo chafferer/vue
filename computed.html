@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>计算属性</title>
+</head>
+<style>
+</style>
+<body>
+    <div id="app">
+        <h3>计算属性</h3>
+        <p>
+            value: {{value}}
+        </p>
+        <button @click="value++"> +1 </button>
+        <button>{{ add }}</button>
+        <!-- <button @click="red"> -1 </button> -->
+    </div>
+    <script>
+        // 方法和计算属性的不同
+        new Vue({
+            el: "#app",
+            data: {
+                value: 0,
+            },
+            // methods: {
+            //     add: function(){
+            //         console.log("add");
+            //         this.value++;
+            //     },
+            //     red: function(){
+            //         console.log("reduce");
+            //         this.value--;
+            //     }
+            // },
+            computed: {
+                //计算属性
+                add: function (){
+                    return this.value++;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
