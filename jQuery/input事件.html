@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>input事件</title>
+</head>
+<body>
+    用户名：<input type="text" id="ipt">
+    <script>
+        $(function(){
+            /*
+             * oninput 事件只要输入框发生变化就触发
+             * propertychange 是ie专有，会实时触发
+             * onchange 事件只有输入框失去焦点的时候才触发
+             * onkeyup、onkeydown 事件在在处理复制、粘贴、拖拽、长按键（按住键盘不放）等细节上并不完善。
+             */ 
+            $("#ipt").on("input propertychange", function(){
+                console.log($(this).val());
+            })
+        })
+    </script>
+</body>
+</html>

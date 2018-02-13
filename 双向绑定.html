@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>数据双向绑定</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 方法一：v-model -->
+
+        <p>{{ name }}</p>
+        姓名：<input type="text" v-model="name"> 
+        <!-- 方法二：添加监听 -->
+        <!-- <p>{{name}}</p>
+        <input type="text" ref="name" @keyup="logName"> -->
+     
+    </div>
+    
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                name: ''
+            },
+            methods: {
+                logName: function(){
+                    this.name=this.$refs.name.value;
+                    // console.log(this.$refs);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
