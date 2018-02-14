@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>多个实例化对象</title>
+</head>
+<body>
+    <div id="app1">{{ value }}</div>
+    <div id="app2">
+        {{ value}}
+        <button @click="click">change</button>
+    </div>
+    
+</body>
+<script>
+    //只是针对的元素不一样而已
+    var one = new Vue({
+        el: "#app1",
+        data: {
+            value: "lilei"
+        }
+    });
+    var two = new Vue({
+        el: "#app2",
+        data: {
+            value: "hanmeimei"
+        },
+        methods: {
+            click: function(){
+                one.value = "hanmeimei"; 
+            }
+        }
+    });
+
+    one.value = "wang";
+</script>
+</html>
